@@ -6,7 +6,9 @@ namespace Reefaktor.Omega
     {
         [SerializeField] private Camera mainCamera;
         [SerializeField] private PlayerShipController playerPrefab;
+        [SerializeField] private SpaceBackgroundController backgroundController;
         private PlayerShipController playerShip;
+        
 
 
         #region Unity Member Functions
@@ -29,7 +31,13 @@ namespace Reefaktor.Omega
 
         private void StartGame()
         {
+            backgroundController.Play();
             playerShip.Setup();
+        }
+
+        private void FinishGame()
+        {
+            backgroundController.Stop();
         }
         
         
